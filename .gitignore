@@ -1,0 +1,20 @@
+# Xcode ビルドキャッシュ
+build/
+DerivedData/
+
+# Xcode ユーザー設定
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.moved-to-trash
+
+# macOS
+.DS_Store
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# CocoaPods / Carthage（未使用でも念のため）
+Pods/
+Carthage/Build/

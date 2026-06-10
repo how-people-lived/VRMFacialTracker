@@ -1,0 +1,636 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		040684805FEB520BD640A62C /* VRMTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0DC26E1678B9ECB749423D /* VRMTypes.swift */; };
+		1789CE3339207EC84D21A559 /* MToonMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94321865F4CE521BC760CE2B /* MToonMaterial.swift */; };
+		21A2BA3CC206974DCDFE1456 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB27CB5C56E6DF92B466DAFF /* ContentView.swift */; };
+		2F5C585B9236033D2D397D29 /* UDPSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63D83E38D857695D8EB647B /* UDPSender.swift */; };
+		33938EAD6FC0B82CB16549A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C957EE33C4CE9C8ED6D53E81 /* ContentView.swift */; };
+		37B239F3578E2BBD66851181 /* FlipKernel.metal in Sources */ = {isa = PBXBuildFile; fileRef = 06BD337FAC98BBDF118D3FED /* FlipKernel.metal */; };
+		3BF0D55FF60D087EDB6286DC /* macOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D187BE7B933BEFC053E49D /* macOSApp.swift */; };
+		4BF5ACC4DE18F18141BF7F8E /* SpringBone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF9D5FE6E26D59F9B8440E /* SpringBone.swift */; };
+		4CD3CBF7D9C3E5D410F44DD5 /* MultipeerReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35DC1FA9A2410C8D3F21E42 /* MultipeerReceiver.swift */; };
+		57F2B2EC8DFD662B58DBACD4 /* TrackingFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1434DD1A4565627B20985AD /* TrackingFrame.swift */; };
+		59DC0BDDFCAEBA230C388EF4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1754E55466C99559732CC25 /* Constants.swift */; };
+		68ABA444CC6F6A7DA7A899BF /* ARTrackingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3331D663D200E40D7D5ADB4 /* ARTrackingSession.swift */; };
+		6A7781B38C4A19D7D2F35F2A /* AvatarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84724619C111A4D261A149ED /* AvatarController.swift */; };
+		71FF74904A7DA62CDA896326 /* SyphonServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661B3EE1784C1BEE289F3E3 /* SyphonServer.swift */; };
+		7515213E4A18D625E74F2D5E /* VRMLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD35618F74D8570D329B65D /* VRMLoader.swift */; };
+		7825416097E11F2E952DFCE7 /* VRMBoneMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF95CC74A73E6ECE856D80 /* VRMBoneMapper.swift */; };
+		84E0AFBA67A8141E7160BB65 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1754E55466C99559732CC25 /* Constants.swift */; };
+		872A0F7E0D12BFFB06D7094A /* GLTFKit2 in Frameworks */ = {isa = PBXBuildFile; productRef = 19B321D88A2B5E018E21BEB4 /* GLTFKit2 */; };
+		8C74ADD9B154FB5E298E0956 /* SceneRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E88D4FDE5A865B3A86E73A /* SceneRenderer.swift */; };
+		91CFE9E61695448CFAAE5355 /* VRMBlendShapeMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70FF41ADDFFB1347B773C5 /* VRMBlendShapeMapper.swift */; };
+		943B851E73F6FC52BBFBEEE9 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C800D5412556AC9FD8C289 /* Syphon.framework */; };
+		9C04BA26FA02AD8D128C0264 /* TrackingFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1434DD1A4565627B20985AD /* TrackingFrame.swift */; };
+		D5BC009722A585299FDBBE57 /* Syphon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F3C800D5412556AC9FD8C289 /* Syphon.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D9F1C15C6CE82545D646E1F6 /* GLTFKit2 in Frameworks */ = {isa = PBXBuildFile; productRef = BC06CDE64F6057548B271FFF /* GLTFKit2 */; };
+		E443D3E6516E57D8FE792EA5 /* MultipeerSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A82D2C6D1FCD954ED7CE1F /* MultipeerSender.swift */; };
+		E6DCF413334C7F2219961989 /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44426F07EE97819A90EDB202 /* iOSApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		51484C1C7DD67C6FA093F9D0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D5BC009722A585299FDBBE57 /* Syphon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		03D187BE7B933BEFC053E49D /* macOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSApp.swift; sourceTree = "<group>"; };
+		05E88D4FDE5A865B3A86E73A /* SceneRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRenderer.swift; sourceTree = "<group>"; };
+		06BD337FAC98BBDF118D3FED /* FlipKernel.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = FlipKernel.metal; sourceTree = "<group>"; };
+		2F43377F17FEF4F6DEF6EE8F /* VRMTrackerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VRMTrackerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DCF95CC74A73E6ECE856D80 /* VRMBoneMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMBoneMapper.swift; sourceTree = "<group>"; };
+		3E0DC26E1678B9ECB749423D /* VRMTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMTypes.swift; sourceTree = "<group>"; };
+		424CC67FFE5C5FF4F07B926C /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		43C25269FA34906CCC461738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		44426F07EE97819A90EDB202 /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		4661B3EE1784C1BEE289F3E3 /* SyphonServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyphonServer.swift; sourceTree = "<group>"; };
+		5B70FF41ADDFFB1347B773C5 /* VRMBlendShapeMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMBlendShapeMapper.swift; sourceTree = "<group>"; };
+		629340A6F0DBAA0CEFF5ABE2 /* VRMTrackerPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VRMTrackerPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76A82D2C6D1FCD954ED7CE1F /* MultipeerSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerSender.swift; sourceTree = "<group>"; };
+		84724619C111A4D261A149ED /* AvatarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarController.swift; sourceTree = "<group>"; };
+		8D94409290D2AF9020C3CED2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		94321865F4CE521BC760CE2B /* MToonMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MToonMaterial.swift; sourceTree = "<group>"; };
+		A1754E55466C99559732CC25 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A63D83E38D857695D8EB647B /* UDPSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPSender.swift; sourceTree = "<group>"; };
+		AB27CB5C56E6DF92B466DAFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C3331D663D200E40D7D5ADB4 /* ARTrackingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTrackingSession.swift; sourceTree = "<group>"; };
+		C957EE33C4CE9C8ED6D53E81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D6FF9D5FE6E26D59F9B8440E /* SpringBone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringBone.swift; sourceTree = "<group>"; };
+		DAD35618F74D8570D329B65D /* VRMLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMLoader.swift; sourceTree = "<group>"; };
+		E1434DD1A4565627B20985AD /* TrackingFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingFrame.swift; sourceTree = "<group>"; };
+		E35DC1FA9A2410C8D3F21E42 /* MultipeerReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerReceiver.swift; sourceTree = "<group>"; };
+		F3C800D5412556AC9FD8C289 /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Syphon.framework; path = macOS/Frameworks/Syphon.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6F4693880146864060C5E2FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9F1C15C6CE82545D646E1F6 /* GLTFKit2 in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8CC956598843994DDB77F42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				872A0F7E0D12BFFB06D7094A /* GLTFKit2 in Frameworks */,
+				943B851E73F6FC52BBFBEEE9 /* Syphon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08E1385E669BB2163CED8160 /* VRM */ = {
+			isa = PBXGroup;
+			children = (
+				94321865F4CE521BC760CE2B /* MToonMaterial.swift */,
+				D6FF9D5FE6E26D59F9B8440E /* SpringBone.swift */,
+				5B70FF41ADDFFB1347B773C5 /* VRMBlendShapeMapper.swift */,
+				3DCF95CC74A73E6ECE856D80 /* VRMBoneMapper.swift */,
+				DAD35618F74D8570D329B65D /* VRMLoader.swift */,
+				3E0DC26E1678B9ECB749423D /* VRMTypes.swift */,
+			);
+			path = VRM;
+			sourceTree = "<group>";
+		};
+		13899054114E1F62C52146FC /* Multipeer */ = {
+			isa = PBXGroup;
+			children = (
+				E35DC1FA9A2410C8D3F21E42 /* MultipeerReceiver.swift */,
+			);
+			path = Multipeer;
+			sourceTree = "<group>";
+		};
+		40215636AA25B5513FF3FD8C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C957EE33C4CE9C8ED6D53E81 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4196A33E5ED3FEF8523F3383 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				96B1DCC22850D3AEA04C9142 /* App */,
+				C9A77AD3BB5C39A2D355076D /* Multipeer */,
+				AB96F18D1B44E42EC535E799 /* Tracking */,
+				55852CF5B4A21F2F73FC8ACB /* Views */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		55852CF5B4A21F2F73FC8ACB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB27CB5C56E6DF92B466DAFF /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		609520C20DE434275778277F /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				84724619C111A4D261A149ED /* AvatarController.swift */,
+				06BD337FAC98BBDF118D3FED /* FlipKernel.metal */,
+				05E88D4FDE5A865B3A86E73A /* SceneRenderer.swift */,
+				4661B3EE1784C1BEE289F3E3 /* SyphonServer.swift */,
+			);
+			path = Rendering;
+			sourceTree = "<group>";
+		};
+		6E1751F88C94D7ABBE951353 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		767CD2C69260E0DA79D30803 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				F086276F64D31D5DA29515E4 /* App */,
+				6E1751F88C94D7ABBE951353 /* Models */,
+				13899054114E1F62C52146FC /* Multipeer */,
+				609520C20DE434275778277F /* Rendering */,
+				40215636AA25B5513FF3FD8C /* Views */,
+				08E1385E669BB2163CED8160 /* VRM */,
+				424CC67FFE5C5FF4F07B926C /* BridgingHeader.h */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		7A2E2F05E04F02B5880CF085 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3C800D5412556AC9FD8C289 /* Syphon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A6634C64ACB9D120B376EDC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F43377F17FEF4F6DEF6EE8F /* VRMTrackerMac.app */,
+				629340A6F0DBAA0CEFF5ABE2 /* VRMTrackerPhone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96B1DCC22850D3AEA04C9142 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				43C25269FA34906CCC461738 /* Info.plist */,
+				44426F07EE97819A90EDB202 /* iOSApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AB96F18D1B44E42EC535E799 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				C3331D663D200E40D7D5ADB4 /* ARTrackingSession.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		C9A77AD3BB5C39A2D355076D /* Multipeer */ = {
+			isa = PBXGroup;
+			children = (
+				76A82D2C6D1FCD954ED7CE1F /* MultipeerSender.swift */,
+				A63D83E38D857695D8EB647B /* UDPSender.swift */,
+			);
+			path = Multipeer;
+			sourceTree = "<group>";
+		};
+		D4E602BC68C05E561E09D8FA /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A1754E55466C99559732CC25 /* Constants.swift */,
+				E1434DD1A4565627B20985AD /* TrackingFrame.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		F086276F64D31D5DA29515E4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8D94409290D2AF9020C3CED2 /* Info.plist */,
+				03D187BE7B933BEFC053E49D /* macOSApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FCCDD60C27FAEEBB38CAC56C = {
+			isa = PBXGroup;
+			children = (
+				4196A33E5ED3FEF8523F3383 /* iOS */,
+				767CD2C69260E0DA79D30803 /* macOS */,
+				D4E602BC68C05E561E09D8FA /* Shared */,
+				7A2E2F05E04F02B5880CF085 /* Frameworks */,
+				8A6634C64ACB9D120B376EDC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8ABFBF297F65C7A284E2AC4 /* VRMTrackerPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBD1BBF4D0612B276A0BA510 /* Build configuration list for PBXNativeTarget "VRMTrackerPhone" */;
+			buildPhases = (
+				1806A2717CCEC7720B7914BD /* Sources */,
+				6F4693880146864060C5E2FC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VRMTrackerPhone;
+			packageProductDependencies = (
+				BC06CDE64F6057548B271FFF /* GLTFKit2 */,
+			);
+			productName = VRMTrackerPhone;
+			productReference = 629340A6F0DBAA0CEFF5ABE2 /* VRMTrackerPhone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E339FFD2CBFFDC78CE63B5CD /* VRMTrackerMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D7FFB6E22BDACAB0ECC6533 /* Build configuration list for PBXNativeTarget "VRMTrackerMac" */;
+			buildPhases = (
+				2B92AB07C600368C9379AF33 /* Sources */,
+				D8CC956598843994DDB77F42 /* Frameworks */,
+				51484C1C7DD67C6FA093F9D0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VRMTrackerMac;
+			packageProductDependencies = (
+				19B321D88A2B5E018E21BEB4 /* GLTFKit2 */,
+			);
+			productName = VRMTrackerMac;
+			productReference = 2F43377F17FEF4F6DEF6EE8F /* VRMTrackerMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		38E6682B19D71CEA8833C5FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 937B2B744E2FDF8AA2CB8B6E /* Build configuration list for PBXProject "VRMFacialTracker" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = FCCDD60C27FAEEBB38CAC56C;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				24C4764C22A2D2317AA51913 /* XCRemoteSwiftPackageReference "GLTFKit2" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8A6634C64ACB9D120B376EDC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E339FFD2CBFFDC78CE63B5CD /* VRMTrackerMac */,
+				D8ABFBF297F65C7A284E2AC4 /* VRMTrackerPhone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1806A2717CCEC7720B7914BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68ABA444CC6F6A7DA7A899BF /* ARTrackingSession.swift in Sources */,
+				84E0AFBA67A8141E7160BB65 /* Constants.swift in Sources */,
+				21A2BA3CC206974DCDFE1456 /* ContentView.swift in Sources */,
+				E443D3E6516E57D8FE792EA5 /* MultipeerSender.swift in Sources */,
+				57F2B2EC8DFD662B58DBACD4 /* TrackingFrame.swift in Sources */,
+				2F5C585B9236033D2D397D29 /* UDPSender.swift in Sources */,
+				E6DCF413334C7F2219961989 /* iOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B92AB07C600368C9379AF33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A7781B38C4A19D7D2F35F2A /* AvatarController.swift in Sources */,
+				59DC0BDDFCAEBA230C388EF4 /* Constants.swift in Sources */,
+				33938EAD6FC0B82CB16549A0 /* ContentView.swift in Sources */,
+				37B239F3578E2BBD66851181 /* FlipKernel.metal in Sources */,
+				1789CE3339207EC84D21A559 /* MToonMaterial.swift in Sources */,
+				4CD3CBF7D9C3E5D410F44DD5 /* MultipeerReceiver.swift in Sources */,
+				8C74ADD9B154FB5E298E0956 /* SceneRenderer.swift in Sources */,
+				4BF5ACC4DE18F18141BF7F8E /* SpringBone.swift in Sources */,
+				71FF74904A7DA62CDA896326 /* SyphonServer.swift in Sources */,
+				9C04BA26FA02AD8D128C0264 /* TrackingFrame.swift in Sources */,
+				91CFE9E61695448CFAAE5355 /* VRMBlendShapeMapper.swift in Sources */,
+				7825416097E11F2E952DFCE7 /* VRMBoneMapper.swift in Sources */,
+				7515213E4A18D625E74F2D5E /* VRMLoader.swift in Sources */,
+				040684805FEB520BD640A62C /* VRMTypes.swift in Sources */,
+				3BF0D55FF60D087EDB6286DC /* macOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2DFDD81388FDF8A56EAB6D6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3K832N4HHB;
+				INFOPLIST_FILE = iOS/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.chibatech.vrmtracker.phone;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		529F50DA3C68B8963D409B49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3K832N4HHB;
+				INFOPLIST_FILE = iOS/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.chibatech.vrmtracker.phone;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		BEF898D1476CA076FBAB6D57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/macOS/Frameworks",
+					"\"macOS/Frameworks\"",
+				);
+				INFOPLIST_FILE = macOS/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.chibatech.vrmtracker.mac;
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = macOS/BridgingHeader.h;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		DCD73087CDC6F12AB7F843C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E8238C43BF6CE64AE3921795 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FAC6CA2F023700C9D1F85B18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/macOS/Frameworks",
+					"\"macOS/Frameworks\"",
+				);
+				INFOPLIST_FILE = macOS/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.chibatech.vrmtracker.mac;
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = macOS/BridgingHeader.h;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D7FFB6E22BDACAB0ECC6533 /* Build configuration list for PBXNativeTarget "VRMTrackerMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEF898D1476CA076FBAB6D57 /* Debug */,
+				FAC6CA2F023700C9D1F85B18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		937B2B744E2FDF8AA2CB8B6E /* Build configuration list for PBXProject "VRMFacialTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8238C43BF6CE64AE3921795 /* Debug */,
+				DCD73087CDC6F12AB7F843C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EBD1BBF4D0612B276A0BA510 /* Build configuration list for PBXNativeTarget "VRMTrackerPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				529F50DA3C68B8963D409B49 /* Debug */,
+				2DFDD81388FDF8A56EAB6D6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		24C4764C22A2D2317AA51913 /* XCRemoteSwiftPackageReference "GLTFKit2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/warrenm/GLTFKit2";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		19B321D88A2B5E018E21BEB4 /* GLTFKit2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24C4764C22A2D2317AA51913 /* XCRemoteSwiftPackageReference "GLTFKit2" */;
+			productName = GLTFKit2;
+		};
+		BC06CDE64F6057548B271FFF /* GLTFKit2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24C4764C22A2D2317AA51913 /* XCRemoteSwiftPackageReference "GLTFKit2" */;
+			productName = GLTFKit2;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 38E6682B19D71CEA8833C5FE /* Project object */;
+}

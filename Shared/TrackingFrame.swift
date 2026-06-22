@@ -7,7 +7,8 @@ struct TrackingFrame: Codable {
     let face:       FaceData?
     let leftHand:   HandData?
     let rightHand:  HandData?
-    let body:       BodyData?
+    let body:       BodyData?       // Vision 2D body pose (legacy; kept for compatibility)
+    let body3D:     Body3DData?     // Vision 3D body pose (iOS 17+) — drives accurate arms
 
     func encoded()     -> Data? { try? PropertyListEncoder().encode(self) }
     func jsonEncoded() -> Data? { try? JSONEncoder().encode(self) }
@@ -31,10 +32,28 @@ struct HandData: Codable {
     let joints: [String: JointPoint]    // joint name → normalised image-space point
 }
 
-// MARK: - Body (Vision, upper-body joints)
+// MARK: - Body (Vision, upper-body joints — 2D normalised image space, legacy)
 
 struct BodyData: Codable {
     let joints: [String: JointPoint]
+}
+
+// MARK: - Body3D (Vision VNDetectHumanBodyPose3DRequest, iOS 17+)
+//
+// Joint positions are in Vision's 3D model space (metres), relative to the body root.
+// Only the joints we need for arm rotation are transmitted; nil = not detected this frame.
+// The Mac/Unity side reconstructs full-3DoF arm rotations from the direction vectors
+// shoulder→elbow and elbow→wrist, which (unlike 2D) preserve depth and twist.
+
+struct Body3DData: Codable {
+    let leftShoulder:  SIMD3Float?
+    let leftElbow:     SIMD3Float?
+    let leftWrist:     SIMD3Float?
+    let rightShoulder: SIMD3Float?
+    let rightElbow:    SIMD3Float?
+    let rightWrist:    SIMD3Float?
+    let root:          SIMD3Float?   // pelvis / hip centre
+    let spine:         SIMD3Float?
 }
 
 struct JointPoint: Codable {

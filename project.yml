@@ -33,14 +33,21 @@ targets:
       CURRENT_PROJECT_VERSION: "1"
       SWIFT_VERSION: "5.9"
       TARGETED_DEVICE_FAMILY: "1"
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      CODE_SIGN_STYLE: Automatic
+      # Xcode の Signing & Capabilities で自分の Team を選ぶか、ここに Team ID を記入:
+      # DEVELOPMENT_TEAM: XXXXXXXXXX
     info:
       path: iOS/App/Info.plist
       properties:
-        NSCameraUsageDescription: "ARKit による表情・手のトラッキングにカメラが必要です。"
-        NSLocalNetworkUsageDescription: "Mac への接続に使用します。"
+        CFBundleDisplayName: "VRM Tracker"
+        NSCameraUsageDescription: "ARKit で表情と頭の向きをトラッキングするためにカメラを使用します。"
+        NSLocalNetworkUsageDescription: "同じネットワーク上の Mac アプリへトラッキングデータを送信するために使用します。"
         NSBonjourServices:
           - "_vrm-tracker._tcp"
           - "_vrm-tracker._udp"
+        # 暗号化の輸出コンプライアンス: 標準/免除暗号のみ → 申告不要
+        ITSAppUsesNonExemptEncryption: false
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait

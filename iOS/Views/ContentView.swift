@@ -160,10 +160,8 @@ struct ContentView: View {
                 .foregroundStyle(tracker.isRunning ? .green : .red)
 
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                TrackingTile(icon: "face.smiling",       label: "表情",    active: tracker.isRunning)
-                TrackingTile(icon: "head.profile",       label: "頭の向き",  active: tracker.isRunning)
-                TrackingTile(icon: "hand.raised",        label: "手・指",   active: tracker.isRunning)
-                TrackingTile(icon: "figure.arms.open",   label: "上半身",   active: tracker.isRunning)
+                TrackingTile(icon: "face.smiling", label: "表情 52種", active: tracker.isRunning)
+                TrackingTile(icon: "head.profile", label: "頭の向き",  active: tracker.isRunning)
             }
         }
         .padding(20)

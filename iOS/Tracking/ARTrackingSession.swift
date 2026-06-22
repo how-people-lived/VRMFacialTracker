@@ -20,10 +20,15 @@ final class ARTrackingSession: NSObject, ObservableObject {
     private let visionQueue = DispatchQueue(label: "vrm.vision", qos: .userInteractive)
     private var frameCounter = 0
 
+    /// このアプリは表情トラッキングに専念する。手・体の Vision 推定は無効。
+    /// （腕・指は受信側で自然な立ち姿に固定される）
+    private let trackBodyAndHands = false
+
     // Latest Vision results (written on visionQueue, read on ARKit delegate queue)
     private var latestLeftHand:  HandData?
     private var latestRightHand: HandData?
     private var latestBody:      BodyData?
+    private var latestBody3D:    Body3DData?
     private let resultsLock = NSLock()
 
     // Head orientation calibration
@@ -42,6 +47,12 @@ final class ARTrackingSession: NSObject, ObservableObject {
 
     private lazy var bodyRequest: VNDetectHumanBodyPoseRequest = {
         VNDetectHumanBodyPoseRequest()
+    }()
+
+    /// 3D body pose (iOS 17+). Provides real depth for shoulders/elbows/wrists, which is
+    /// what makes accurate arm rotation possible — 2D pose alone cannot recover depth/twist.
+    private lazy var bodyPose3DRequest: VNDetectHumanBodyPose3DRequest = {
+        VNDetectHumanBodyPose3DRequest()
     }()
 
     // MARK: - Lifecycle
@@ -70,7 +81,7 @@ final class ARTrackingSession: NSObject, ObservableObject {
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer,
                                            orientation: .leftMirrored)
         do {
-            try handler.perform([handRequest, bodyRequest])
+            try handler.perform([handRequest, bodyRequest, bodyPose3DRequest])
         } catch {
             return
         }
@@ -78,6 +89,7 @@ final class ARTrackingSession: NSObject, ObservableObject {
         var leftHand:  HandData?
         var rightHand: HandData?
         var body:      BodyData?
+        let body3D = extractBody3D()
 
         // Hand pose — convert VNHumanHandPoseObservation.JointName keys to String rawValues
         if let handObs = handRequest.results {
@@ -113,7 +125,38 @@ final class ARTrackingSession: NSObject, ObservableObject {
         latestLeftHand  = leftHand
         latestRightHand = rightHand
         latestBody      = body
+        latestBody3D    = body3D   // nil when no body detected → Mac side eases arms to rest
         resultsLock.unlock()
+    }
+
+    // MARK: - 3D body pose extraction
+
+    /// Pulls the joints we need from the latest VNDetectHumanBodyPose3DRequest result.
+    /// `position` is each joint's transform relative to the body root (metres); we keep
+    /// only the translation. Direction vectors between joints are what the Mac side uses,
+    /// so the choice of reference origin doesn't matter — only that all joints share it.
+    private func extractBody3D() -> Body3DData? {
+        guard let obs = bodyPose3DRequest.results?.first else { return nil }
+
+        func pos(_ joint: VNHumanBodyPose3DObservation.JointName) -> SIMD3Float? {
+            guard let p = try? obs.recognizedPoint(joint) else { return nil }
+            let t = p.position.columns.3
+            return SIMD3Float(t.x, t.y, t.z)
+        }
+
+        let data = Body3DData(
+            leftShoulder:  pos(.leftShoulder),
+            leftElbow:     pos(.leftElbow),
+            leftWrist:     pos(.leftWrist),
+            rightShoulder: pos(.rightShoulder),
+            rightElbow:    pos(.rightElbow),
+            rightWrist:    pos(.rightWrist),
+            root:          pos(.root),
+            spine:         pos(.spine))
+
+        // Discard a fully-empty result so the Mac side falls back cleanly.
+        let anyJoint = data.leftShoulder ?? data.rightShoulder ?? data.leftWrist ?? data.rightWrist
+        return anyJoint == nil ? nil : data
     }
 
     // Chirality heuristic: in a selfie view, right hand wrist is to the right of middle finger base
@@ -155,8 +198,9 @@ extension ARTrackingSession: ARSessionDelegate {
             break
         }
 
-        // Run Vision every N frames (off-thread so ARKit isn't blocked)
-        if frameCounter % TrackingConfig.visionFrameInterval == 0 {
+        // Run Vision hand/body pose every N frames (off-thread so ARKit isn't blocked).
+        // Disabled while we focus on facial tracking — keeps the full frame budget for the face.
+        if trackBodyAndHands, frameCounter % TrackingConfig.visionFrameInterval == 0 {
             let pb = frame.capturedImage
             visionQueue.async { [weak self] in
                 self?.runVision(on: pb)
@@ -164,9 +208,10 @@ extension ARTrackingSession: ARSessionDelegate {
         }
 
         resultsLock.lock()
-        let left  = latestLeftHand
-        let right = latestRightHand
-        let body  = latestBody
+        let left   = latestLeftHand
+        let right  = latestRightHand
+        let body   = latestBody
+        let body3D = latestBody3D
         resultsLock.unlock()
 
         let tracking = TrackingFrame(
@@ -174,7 +219,8 @@ extension ARTrackingSession: ARSessionDelegate {
             face:       faceData,
             leftHand:   left,
             rightHand:  right,
-            body:       body
+            body:       body,
+            body3D:     body3D
         )
 
         lastFrame = tracking

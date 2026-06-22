@@ -1,13 +1,14 @@
 # VRM Facial Tracker
 
-ARKit + Vision によるフェイシャルトラッキングアプリ。
-iPhone でキャプチャしたデータを Mac に送り、VRM アバターをリアルタイム制御、Syphon 経由で OBS に透明背景出力します。
+ARKit による**フェイシャルトラッキング**アプリ。
+iPhone で表情・頭の向きをキャプチャして Mac に送り、VRM アバターをリアルタイム制御します。
+腕・指は追従せず、アバターは自然な立ち姿で静止します（表情に専念）。
 
 ## 構成
 
 ```
-iPhone App  →  Multipeer Connectivity  →  Mac App  →  Syphon  →  OBS
-(ARKit + Vision)                         (SceneKit)           (仮想カメラ)
+iPhone App  →  Multipeer / UDP  →  Mac App (Swift / Unity)  →  Syphon  →  OBS
+(ARKit Face)                       (SceneKit / UniVRM)                  (仮想カメラ)
 ```
 
 ## トラッキング内容
@@ -15,8 +16,10 @@ iPhone App  →  Multipeer Connectivity  →  Mac App  →  Syphon  →  OBS
 | ソース | 内容 |
 |--------|------|
 | ARKit `ARFaceTrackingConfiguration` | 表情 52 BlendShapes + 頭部 6DoF |
-| Vision `VNDetectHumanHandPoseRequest` | 両手 21 関節 (前カメラ) |
-| Vision `VNDetectHumanBodyPoseRequest` | 上半身ポーズ (前カメラ) |
+
+> 手・上半身の Vision 推定 (`VNDetectHumanHandPoseRequest` /
+> `VNDetectHumanBodyPose3DRequest`) は `ARTrackingSession.trackBodyAndHands`
+> フラグで無効化しています。再度有効にすればデータ送信を復活できます。
 
 ## セットアップ手順
 
@@ -98,9 +101,10 @@ Shared/
 
 ## 既知の制限
 
-- **ARKit 体トラッキング**: `ARBodyTrackingConfiguration` は背面カメラを使用するため、
-  このアプリは代わりに Vision 上半身ポーズ推定を前カメラで行います。
-  腕の回転は 2D→3D 推定のため精度に限界があります。
+- **腕・指トラッキングは廃止**: ARKit は前面カメラの顔と背面カメラの全身を同時に扱えず、
+  前カメラ + Vision の 2D/3D 推定では精度に限界があったため、表情トラッキングに専念する方針にしました。
+  腕・指は受信側 (`BoneMapper`) で**自然な立ち姿**（腕を下ろし指を軽く曲げた姿勢）に固定されます。
+  立ち姿の角度は Unity の `BoneMapper` インスペクタ（`upperArmDownAngle` 等）で調整できます。
 - **Syphon**: `#if canImport(Syphon)` が false の場合はフレームが出力されません。
   Syphon.framework の追加を確認してください。
 - **VRM 1.0**: 現時点では VRM 0.x のみ対応。VRM 1.0 (`VRMC_vrm` 拡張) は今後対応予定。
